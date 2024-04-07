@@ -45,7 +45,7 @@ const CreatePost = () => {
           <GrScheduleNew size={24} className="cursor-pointer" />
           <MdOutlineLocationOn size={24} className="cursor-pointer" />
         </div>
-        <button className="px-4 py-1 text-lg font-medium text-white border-none rounded-full bg-twitterColor">
+        <button className="px-4 py-2 text-sm font-medium text-white border-none rounded-full bg-twitterColor">
           Post
         </button>
       </div>
