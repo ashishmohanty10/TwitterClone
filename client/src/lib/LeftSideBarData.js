@@ -23,7 +23,7 @@ export const LeftSideBarLinks = [
     id: 3,
     icon: HiOutlineBell,
     title: "Notification",
-    href: "/notication",
+    href: "/notification",
   },
   {
     id: 5,
