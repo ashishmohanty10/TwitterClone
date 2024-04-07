@@ -23,7 +23,12 @@ const CreatePost = () => {
       </div>
 
       <div className="flex items-center w-full p-2">
-        <Avatar src={ProfileOne} size="60" round={true} className="w-[40%]" />
+        <Avatar
+          src={ProfileOne}
+          size="60"
+          round={true}
+          className="w-[40%] cursor-pointer"
+        />
         <input
           className="ml-2 text-lg border-none outline-none w-[60%]"
           type="text"

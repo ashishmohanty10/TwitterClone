@@ -11,14 +11,16 @@ const Tweet = () => {
   return (
     <div className="my-4 border-b border-gray-200">
       <div className="flex gap-5">
-        <div>
+        <div className="cursor-pointer">
           <Avatar src={ProfileOne} size="60" round={true} />
         </div>
 
         <div className="w-full ml-2">
-          <div className="flex items-center ">
-            <h1 className="font-bold">Ashish Mohanty</h1>
-            <p className="ml-1 text-sm text-gray-500">@ashishmohanty</p>
+          <div className="flex items-center cursor-pointer">
+            <h1 className="font-bold hover:underline">Ashish Mohanty</h1>
+            <p className="ml-1 text-sm text-gray-500 hover:underline">
+              @ashishmohanty
+            </p>
           </div>
 
           <div>

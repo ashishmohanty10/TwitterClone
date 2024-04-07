@@ -4,7 +4,7 @@ import { LeftSideBarLinks } from "../lib/LeftSideBarData";
 
 const LeftSideBar = () => {
   return (
-    <div className="w-[20%] my-3">
+    <div className="w-[25%] my-3">
       <div>
         <a href="/">
           <img src={Logo} alt="Twitter Logo" className="w-[40px] h-[40px]" />
