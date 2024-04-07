@@ -4,7 +4,7 @@ import { LeftSideBarLinks } from "../lib/LeftSideBarData";
 
 const LeftSideBar = () => {
   return (
-    <div className="w-[20%]">
+    <div className="w-[20%] my-3">
       <div>
         <a href="/">
           <img src={Logo} alt="Twitter Logo" className="w-[40px] h-[40px]" />
@@ -18,7 +18,7 @@ const LeftSideBar = () => {
               <a
                 key={data.id}
                 href={data.href}
-                className="flex items-center gap-5 px-4 py-2 rounded-full hover:bg-gray-100"
+                className="flex items-center gap-5 px-4 py-2 rounded-full hover:bg-gray-100 w-fit"
               >
                 <data.icon size={30} className=" text-primaryTextColor" />
 

@@ -4,7 +4,7 @@ export default {
   theme: {
     extend: {
       colors: {
-        twitterColor: "#1a8cd8",
+        twitterColor: "#1DA1F2",
         primaryTextColor: "#0f172a",
       },
     },
