@@ -9,6 +9,7 @@ import WhoToFollow from "./WhoToFollow";
 
 const RightSideBar = () => {
   return (
+    <>
     <div className="w-[25%] my-3 ">
       {/* Search */}
       <div className="flex items-center w-full p-2 text-gray-500 bg-gray-100 rounded-full">
@@ -36,6 +37,7 @@ const RightSideBar = () => {
         </div>
       </div>
     </div>
+    </>
   );
 };
 

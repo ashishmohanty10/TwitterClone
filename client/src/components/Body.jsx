@@ -8,6 +8,7 @@ import Explore from "../pages/Explore";
 import Notification from "../pages/Notification";
 import Messages from "../pages/Messages";
 import List from "../pages/List";
+import Login from "../pages/Login";
 
 const Body = () => {
   const appRouter = createBrowserRouter([
@@ -21,8 +22,10 @@ const Body = () => {
         { path: "/messages", element: <Messages /> },
         { path: "/list", element: <List /> },
         { path: "/profile", element: <Profile /> },
+        
       ],
     },
+    { path: "/login", element: <Login /> },
     {
       path: "/logout",
       element: <Logout />,
