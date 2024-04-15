@@ -5,5 +5,6 @@
 
 # Project Contributors 🧑‍💻
 
-1. Ashish Mohanty <br>
+1. Ashish Mohanty 
+<br>
 2. Suman Patra

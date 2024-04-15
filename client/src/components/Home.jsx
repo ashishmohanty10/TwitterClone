@@ -6,11 +6,13 @@ import { Outlet } from "react-router-dom";
 
 const Home = () => {
   return (
+    <>
     <div className="flex justify-between w-[80%] mx-auto gap-2">
       <LeftSideBar />
       <Outlet />
       <RightSideBar />
     </div>
+    </>
   );
 };
 
