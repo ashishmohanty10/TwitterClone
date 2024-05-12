@@ -2,6 +2,7 @@ import { User } from "../models/userSchema.js";
 import bcryptjs from "bcryptjs";
 import jwt from "jsonwebtoken";
 
+// Register
 export const Register = async (req, res) => {
   try {
     const { name, username, email, password } = req.body;
@@ -38,6 +39,7 @@ export const Register = async (req, res) => {
   }
 };
 
+// Login
 export const Login = async (req, res) => {
   try {
     const { email, password } = req.body;
@@ -84,6 +86,7 @@ export const Login = async (req, res) => {
   }
 };
 
+// Logout
 export const logout = (req, res) => {
   return res.cookie("token", "", { expiresIn: new Date(Date.now()) }).json({
     message: "user logged out successfully.",
@@ -91,6 +94,7 @@ export const logout = (req, res) => {
   });
 };
 
+// Bookmark
 export const bookmark = async (req, res) => {
   try {
     const loggedInUserId = req.body.id;
@@ -124,6 +128,7 @@ export const bookmark = async (req, res) => {
   }
 };
 
+// Get Profile
 export const getMyProfile = async (req, res) => {
   try {
     const id = req.params.id;
@@ -138,6 +143,7 @@ export const getMyProfile = async (req, res) => {
   }
 };
 
+// Get Others Profile
 export const getOtherUser = async (req, res) => {
   try {
     const { id } = req.params;
@@ -152,6 +158,53 @@ export const getOtherUser = async (req, res) => {
 
     return res.status(200).json({
       otherUsers,
+    });
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+// Follow
+export const follow = async (req, res) => {
+  try {
+    const loggedInUserId = req.body.id;
+    const userId = req.params.id;
+    const loggedInUser = await User.findById(loggedInUserId);
+    const user = await User.findById(userId);
+    if (!user.followers.includes(loggedInUserId)) {
+      await user.updateOne({ $push: { followers: loggedInUserId } });
+      await loggedInUser.updateOne({ $push: { following: userId } });
+    } else {
+      return res.status(400).json({
+        message: `User already followed to ${user.name}`,
+      });
+    }
+    return res.status(200).json({
+      message: `${loggedInUser.name} just follow to ${user.name}`,
+      success: true,
+    });
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+export const unfollow = async (req, res) => {
+  try {
+    const loggedInUserId = req.body.id;
+    const userId = req.params.id;
+    const loggedInUser = await User.findById(loggedInUserId);
+    const user = await User.findById(userId);
+    if (loggedInUser.following.includes(userId)) {
+      await user.updateOne({ $pull: { followers: loggedInUserId } });
+      await loggedInUser.updateOne({ $pull: { following: userId } });
+    } else {
+      return res.status(400).json({
+        message: `User has not followed yet`,
+      });
+    }
+    return res.status(200).json({
+      message: `${loggedInUser.name} unfollow to ${user.name}`,
+      success: true,
     });
   } catch (error) {
     console.log(error);
