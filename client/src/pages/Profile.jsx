@@ -3,7 +3,14 @@ import Avatar from "react-avatar";
 import { IoMdArrowBack } from "react-icons/io";
 import { Link } from "react-router-dom";
 import ProfileOne from "/ProfileOne.svg";
+import { useSelector } from "react-redux";
+import useProfile from "../hooks/useProfile";
+
+
 const Profile = () => {
+
+  const{user,profile}=useSelector(store => store.user)
+  useProfile(user?._id)
   return (
     <>
       <div className="w-[50%] border-l border-r border-gray-200">
@@ -13,7 +20,7 @@ const Profile = () => {
               <IoMdArrowBack size="24px" />
             </Link>
             <div className="ml-2">
-              <h1 className="font-bold text-lg">Aschis</h1>
+              <h1 className="font-bold text-lg">{profile?.name}</h1>
               <p className="text-gray-500 text-sm">10 post</p>
             </div>
           </div>
@@ -37,8 +44,8 @@ const Profile = () => {
           </button>
         </div>
         <div className="m-4">
-          <h1 className="font-bold text-xl">Suman</h1>
-          <p>@muaokgjgsj</p>
+          <h1 className="font-bold text-xl">{profile?.name}</h1>
+          <p>{`@${profile?.username}`}</p>
         </div>
         <div className="m-4 text-sm">
           <p>
